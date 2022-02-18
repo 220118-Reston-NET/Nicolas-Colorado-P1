@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "dWUglCn+0uAuYlWLyr8TwJWSYmhpq6Okam0K9E4x4jOC87NsH83OdlkYp3Ve8TOglE1LtJ5eVAHwwjh8M3q2ZA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\nickc\\Documents\\Project1\\ShopApi\\ShopApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nickc\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\nickc\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\nickc\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\nickc\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\nickc\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\nickc\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
