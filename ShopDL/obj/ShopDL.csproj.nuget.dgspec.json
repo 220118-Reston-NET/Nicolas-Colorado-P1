@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nickc\\Documents\\Project0\\ShopDL\\ShopDL.csproj": {}
+    "C:\\Users\\nickc\\Documents\\Project1\\ShopDL\\ShopDL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nickc\\Documents\\Project0\\ShopDL\\ShopDL.csproj": {
+    "C:\\Users\\nickc\\Documents\\Project1\\ShopDL\\ShopDL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nickc\\Documents\\Project0\\ShopDL\\ShopDL.csproj",
+        "projectUniqueName": "C:\\Users\\nickc\\Documents\\Project1\\ShopDL\\ShopDL.csproj",
         "projectName": "ShopDL",
-        "projectPath": "C:\\Users\\nickc\\Documents\\Project0\\ShopDL\\ShopDL.csproj",
+        "projectPath": "C:\\Users\\nickc\\Documents\\Project1\\ShopDL\\ShopDL.csproj",
         "packagesPath": "C:\\Users\\nickc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nickc\\Documents\\Project0\\ShopDL\\obj\\",
+        "outputPath": "C:\\Users\\nickc\\Documents\\Project1\\ShopDL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nickc\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\nickc\\Documents\\Project0\\ShopModel\\ShopModel.csproj": {
-                "projectPath": "C:\\Users\\nickc\\Documents\\Project0\\ShopModel\\ShopModel.csproj"
+              "C:\\Users\\nickc\\Documents\\Project1\\ShopModel\\ShopModel.csproj": {
+                "projectPath": "C:\\Users\\nickc\\Documents\\Project1\\ShopModel\\ShopModel.csproj"
               }
             }
           }
@@ -74,14 +74,14 @@
         }
       }
     },
-    "C:\\Users\\nickc\\Documents\\Project0\\ShopModel\\ShopModel.csproj": {
+    "C:\\Users\\nickc\\Documents\\Project1\\ShopModel\\ShopModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nickc\\Documents\\Project0\\ShopModel\\ShopModel.csproj",
+        "projectUniqueName": "C:\\Users\\nickc\\Documents\\Project1\\ShopModel\\ShopModel.csproj",
         "projectName": "ShopModel",
-        "projectPath": "C:\\Users\\nickc\\Documents\\Project0\\ShopModel\\ShopModel.csproj",
+        "projectPath": "C:\\Users\\nickc\\Documents\\Project1\\ShopModel\\ShopModel.csproj",
         "packagesPath": "C:\\Users\\nickc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nickc\\Documents\\Project0\\ShopModel\\obj\\",
+        "outputPath": "C:\\Users\\nickc\\Documents\\Project1\\ShopModel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nickc\\AppData\\Roaming\\NuGet\\NuGet.Config"

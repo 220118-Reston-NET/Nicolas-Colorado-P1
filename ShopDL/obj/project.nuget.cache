@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wWVeonUQkunZOcBwQLbJPMEG4W9MZ+53NFjawhC6AHMJoriMKSGTdbxQ/tdvMxobdPBVES/y0FZACpcfYSHhAA==",
+  "dgSpecHash": "IXyiLRE1CGfqDS6qMPTFLhVUHL/izC3cbjyJ9rhjGoeMzgcUO1MTo4zCSPD1JJiLkma63Yb76+mnPwGkuHa4CA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nickc\\Documents\\Project0\\ShopDL\\ShopDL.csproj",
+  "projectFilePath": "C:\\Users\\nickc\\Documents\\Project1\\ShopDL\\ShopDL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nickc\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\nickc\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
