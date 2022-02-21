@@ -14,6 +14,13 @@ namespace ShopBL
         Customer AddCustomer(Customer p_customer);
 
         /// <summary>
+        /// Updates a customer to the database
+        /// </summary>
+        /// <param name="p_customer"></param>
+        /// <returns> Returns customer that was updated. </returns>
+        Customer UpdateCustomer(Customer p_customer);
+
+        /// <summary>
         /// Will search for customer in the listed database based on search parameters.
         /// </summary>
         /// <param name="c_search">This is whatever search parameter the user chose.</param>
@@ -39,7 +46,7 @@ namespace ShopBL
         /// </summary>
         /// <param name="p_customerID"></param>
         /// <returns> Returns customer that was added. </returns>
-        List<Customer> GetCustomerbyCustomerID(int p_customerID);
+        List<Customer> GetCustomerbyName(string p_Name);
 
     }
 }

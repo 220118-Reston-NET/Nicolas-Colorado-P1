@@ -34,6 +34,29 @@ namespace ShopDL
             return p_customer;          
         }
 
+        public Customer UpdateCustomer(Customer p_customer)
+        {
+            string sqlQuery = @"update Customer
+                            set Name=@Name, Address=@Address, Email=@Email, Phone=@Phone
+                            where customerID=@customerID;";
+            
+            using (SqlConnection con = new SqlConnection(_connectionStrings))
+            {
+                con.Open();
+
+                SqlCommand command = new SqlCommand(sqlQuery, con);
+
+                command.Parameters.AddWithValue("@customerID", p_customer.customerID);
+                command.Parameters.AddWithValue("@Name", p_customer.Name);
+                command.Parameters.AddWithValue("@Address", p_customer.Address);
+                command.Parameters.AddWithValue("@Email", p_customer.Email);
+                command.Parameters.AddWithValue("@Phone", p_customer.Phone);
+
+                command.ExecuteNonQuery();
+            }
+            return p_customer;
+        }
+
 
         public List<Orders> GetOrderbyCustomerID(int p_customerID)
         {
@@ -68,36 +91,36 @@ namespace ShopDL
         }
 
 
-         public List<Customer> GetCustomerbyCustomerID(int p_customerID)
-         {
-            List<Customer> listofCustomer = new List<Customer>();
+        //  public List<Customer> GetCustomerbyName(string p_Name)
+        //  {
+        //     List<Customer> listofCustomer = new List<Customer>();
 
-            string sqlQuery = @"select c.customerID, c.Name, c.Address, c.Email, c.Phone from Customer c
-                            where c.customerID = @customerID";
+        //     string sqlQuery = @"select * from Customer c
+        //                     where c.Name = @Name";
             
-            using (SqlConnection con = new SqlConnection(_connectionStrings))
-            {
-                con.Open();
+        //     using (SqlConnection con = new SqlConnection(_connectionStrings))
+        //     {
+        //         con.Open();
 
-                SqlCommand command = new SqlCommand(sqlQuery, con);
-                command.Parameters.AddWithValue("@customerID", p_customerID);
+        //         SqlCommand command = new SqlCommand(sqlQuery, con);
+        //         command.Parameters.AddWithValue("@Name", p_Name);
 
-                SqlDataReader reader = command.ExecuteReader();
+        //         SqlDataReader reader = command.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    listofCustomer.Add(new Customer()
-                    {
-                        customerID = reader.GetInt32(0),
-                        Name = reader.GetString(1),
-                        Address = reader.GetString(2),
-                        Email = reader.GetString(3),
-                        Phone = reader.GetString(4)
-                    });
-                }
-            }
-            return listofCustomer;
-         }
+        //         while (reader.Read())
+        //         {
+        //             listofCustomer.Add(new Customer()
+        //             {
+        //                 customerID = reader.GetInt32(0),
+        //                 Name = reader.GetString(1),
+        //                 Address = reader.GetString(2),
+        //                 Email = reader.GetString(3),
+        //                 Phone = reader.GetString(4)
+        //             });
+        //         }
+        //     }
+        //     return listofCustomer;
+        //  }
 
 
         public List<Customer> GetAllCustomer()
@@ -124,11 +147,31 @@ namespace ShopDL
                         Address = reader.GetString(2),
                         Email = reader.GetString(3),
                         Phone = reader.GetString(4),
-                        Orders = GetOrderbyCustomerID(reader.GetInt32(0))
+                        //Orders = GetOrderbyCustomerID(reader.GetInt32(0))
                     });
                 }
             }
             return listofCustomer;
+        }
+
+
+        public StoreFront AddStoreFront(StoreFront p_store)
+        {
+            string sqlQuery = @"insert into StoreFront
+                            values(@Name, @Address, @Phone)";
+
+            using (SqlConnection con = new SqlConnection(_connectionStrings))
+            {
+                con.Open();
+
+                SqlCommand command = new SqlCommand(sqlQuery, con);
+                command.Parameters.AddWithValue("@Name", p_customer.Name);
+                command.Parameters.AddWithValue("@Address", p_customer.Address);
+                command.Parameters.AddWithValue("@Phone", p_customer.Phone);
+
+                command.ExecuteNonQuery();
+            }    
+            return p_store;          
         }
 
 

@@ -21,6 +21,17 @@ namespace ShopModel
 
         public double TotalPrice { get; set; }
 
+        public Orders()
+        {
+            orderID = 0;
+            customerID = 0;
+            storeID = 0;
+            _lineItem = new List<LineItem>()
+            {
+                new LineItem()
+            };
+        }
+
         public override string ToString()
         {
             return $"OrderID: {orderID}\nCustomerID: {customerID}\nStoreID: {storeID}\nTotal Price: {TotalPrice}";

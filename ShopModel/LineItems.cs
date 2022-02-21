@@ -10,6 +10,14 @@ namespace ShopModel
 
         public int Quantity { get; set; }
 
+        public LineItem()
+        {
+            orderID = 0;
+            productID = 0;
+            ProductName = "";
+            Quantity = 0;
+        }
+
 
         public override string ToString()
         {

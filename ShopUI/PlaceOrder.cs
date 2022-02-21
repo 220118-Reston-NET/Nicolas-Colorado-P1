@@ -11,12 +11,10 @@ namespace ShopUI
         //Dependency Injection
         private ICustomerBL _customerBL;
         private IStoreFrontBL _storeBL;
-        private IOrderBL _orderBL;
-        public PlaceOrder(ICustomerBL p_customerBL, IStoreFrontBL p_storeBL, IOrderBL p_orderBL)
+        public PlaceOrder(ICustomerBL p_customerBL, IStoreFrontBL p_storeBL)
         {
             _customerBL = p_customerBL;
             _storeBL = p_storeBL;
-            _orderBL = p_orderBL;
             _listofCustomer = _customerBL.GetAllCustomer();
             _listofStoreFront = _storeBL.GetAllStoreFront();
         }
@@ -67,25 +65,6 @@ namespace ShopUI
                         Console.ReadLine();
                         Log.Information("User pressed the Enter key to continue:");
                     }
-                    // Console.WriteLine("=============== Customer List ===============");
-                    // foreach (var item in _listofCustomer)
-                    // {
-                    //     Console.WriteLine(item.customerID);
-                    //     Console.WriteLine(item.Name);
-                    //     Console.WriteLine("-------------------------");
-                    // }
-                    // Console.WriteLine("");
-                    // Console.WriteLine("Please enter a customer ID:");
-                    // try
-                    // {
-                    //     //Get the customer ID from the user.
-                    //     _customerID = Convert.ToInt32(Console.ReadLine());
-                    //     Log.Information("User has entered a customer ID.");
-                    //     if ((_listofCustomer.All(p => p.customerID != _customerID)))
-                    //     {
-                    //         throw new Exception("Customer ID cannot be found.");
-                    //     }
-                    // }
                     catch (System.Exception)
                     {
                         Log.Warning("Customer email could not be found in database.");
@@ -160,7 +139,7 @@ namespace ShopUI
                         {
                             Log.Information("User selected to add product to an order.");
 
-                            //Products' information  (ID and quantity) are specified by the user to add to the order.
+                            //Products' information (ID and quantity) are specified by the user to add to the order.
                             try
                             {
                                 Console.WriteLine("Please enter the product ID:");
@@ -256,7 +235,7 @@ namespace ShopUI
                                 Log.Information("User selected to submit an order.");
                                 //Adds new order to the database using the StoreFront BL.
                                 //Inventory updated with subtracted quantity of products in SQL Repository.
-                                _orderBL.PlaceNewOrder(_customerID, _storeID, _priceTotal, orderedItems);
+                                _storeBL.PlaceNewOrder(_customerID, _storeID, _priceTotal, orderedItems);
                                 
                                 Console.WriteLine("Thank you for your order!");
                                 Console.WriteLine("Please press the Enter key to continue:");

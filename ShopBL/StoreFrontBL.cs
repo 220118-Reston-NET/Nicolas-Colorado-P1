@@ -35,5 +35,10 @@ namespace ShopBL
             _repo.ReplenishInventory(p_productID, p_Quantity, p_storedID);
         }
 
+        public void PlaceNewOrder(int p_customerID, int p_storeID, double p_priceTotal, List<LineItem> p_orderedItems)
+        {
+            _repo.PlaceNewOrder(p_customerID, p_storeID, p_priceTotal, p_orderedItems);
+        }
+
     }
 }

@@ -21,15 +21,24 @@ namespace ShopBL
             return _repo.AddCustomer(p_customer);
         }
 
+        public Customer UpdateCustomer(Customer p_customer)
+        {
+            return _repo.UpdateCustomer(p_customer);
+        }
+
 
         public List<Orders> GetOrderbyCustomerID(int p_customerID)
         {
             return _repo.GetOrderbyCustomerID(p_customerID);
         }
 
-        public List<Customer> GetCustomerbyCustomerID(int p_customerID)
+        public List<Customer> GetCustomerbyName(string p_Name)
         {
-            return _repo.GetCustomerbyCustomerID(p_customerID);
+            List<Customer> listCustomer = _repo.GetAllCustomer();
+
+            return listCustomer
+                        .Where(customer => customer.Name.Contains(p_Name))
+                        .ToList();
         }
 
 

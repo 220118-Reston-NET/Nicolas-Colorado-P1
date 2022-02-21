@@ -14,17 +14,18 @@ namespace ShopDL
         Customer AddCustomer(Customer p_customer);
 
         /// <summary>
+        /// Updates a customer to the database
+        /// </summary>
+        /// <param name="p_customer"></param>
+        /// <returns> Returns customer that was updated. </returns>
+        Customer UpdateCustomer(Customer p_customer);
+
+        /// <summary>
         /// Will give back all customers in the database in the form of a list.
         /// </summary>
         /// <returns> Returns a list collection of all customers in database. </returns>
         List<Customer> GetAllCustomer();
 
-        /// <summary>
-        /// Gets back a customer from a customer ID input.
-        /// </summary>
-        /// <param name="p_customerID"></param>
-        /// <returns> Returns customer that was added. </returns>
-        List<Customer> GetCustomerbyCustomerID(int p_customerID);
 
         /// <summary>
         /// Will give back a list of orders by customer (There's only one currently).
