@@ -26,6 +26,11 @@ namespace ShopDL
         /// <returns> Returns a list collection of all customers in database. </returns>
         List<Customer> GetAllCustomer();
 
+        /// <summary>
+        /// Will give back all customers in the database in the form of a list (Async version).
+        /// </summary>
+        /// <returns> Returns a list collection of all customers in database. </returns>
+        Task<List<Customer>> GetAllCustomerAsync();
 
         /// <summary>
         /// Will give back a list of orders by customer (There's only one currently).
@@ -34,11 +39,24 @@ namespace ShopDL
         /// <returns> Returns a list collection of order objects. </returns>
         List<Orders> GetOrderbyCustomerID(int p_customerID);
 
+        /// <summary>
+        /// Will add store info to the database.
+        /// </summary>
+        /// <param name="p_store"></param>
+        /// <returns>Returns a store's information. </returns>
+        StoreFront AddStoreFront(StoreFront p_store);
+
         // <summary>
         /// Will give back all the store fronts in the database (There's only one currently).
         /// </summary>
         /// <returns> Returns all store fronts. </returns>
         List<StoreFront> GetAllStoreFront();
+
+        // <summary>
+        /// Will give back all the store fronts in the database (Async version).
+        /// </summary>
+        /// <returns> Returns all store fronts. </returns>
+        Task<List<StoreFront>> GetAllStoreFrontAsync();
 
         /// <summary>
         /// Will give back a list of orders by store. (There's only one currently).

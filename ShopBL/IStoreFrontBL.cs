@@ -5,10 +5,23 @@ namespace ShopBL
     public interface IStoreFrontBL
     {
         /// <summary>
+        /// Will add store info to the database.
+        /// </summary>
+        /// <param name="p_store"></param>
+        /// <returns>Returns a store's information. </returns>
+        StoreFront AddStoreFront(StoreFront p_store);
+
+        /// <summary>
         /// Will give back all stores in the database in the form of a list.
         /// </summary>
         /// <returns> Returns a list collection of all stores in database. </returns>
         List<StoreFront> GetAllStoreFront();
+
+        /// <summary>
+        /// Will give back all stores in the database in the form of a list (Async version).
+        /// </summary>
+        /// <returns> Returns a list collection of all stores in database. </returns>
+        Task<List<StoreFront>> GetAllStoreFrontAsync();
 
         /// <summary>
         /// Will give back a list of orders by stores. (There's only one currently).

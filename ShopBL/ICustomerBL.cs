@@ -7,10 +7,10 @@ namespace ShopBL
     public interface ICustomerBL
     {
         /// <summary>
-        /// Will add customer infofrmation to the database.
+        /// Will add customer information to the database.
         /// </summary>
         /// <param name="p_customer"></param>
-        /// <returns>Returns a customer's information</returns>
+        /// <returns>Returns a customer's information. </returns>
         Customer AddCustomer(Customer p_customer);
 
         /// <summary>
@@ -33,6 +33,12 @@ namespace ShopBL
         /// </summary>
         /// <returns> Returns a list collection of all customers in database. </returns>
         List<Customer> GetAllCustomer();
+
+        /// <summary>
+        /// Will give back all customers in the database in the form of a list (Async version).
+        /// </summary>
+        /// <returns> Returns a list collection of all customers in database. </returns>
+        Task<List<Customer>> GetAllCustomerAsync();
 
         /// <summary>
         /// Will give back a list of orders by customer (There's only one currently).

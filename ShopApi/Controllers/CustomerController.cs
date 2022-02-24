@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using ShopBL;
 using ShopModel;
 
@@ -28,19 +29,31 @@ namespace ShopApi.Controllers
     {
         //Customer dependency injection
         private ICustomerBL _customerBL;
-        public CustomerController(ICustomerBL p_customerBL)
+
+        private IMemoryCache _memoryCache;
+
+        public CustomerController(ICustomerBL p_customerBL, IMemoryCache p_memoryCache)
         {
             _customerBL = p_customerBL;
+            _memoryCache = p_memoryCache;
         }
         //------------------------------------------------------
-        
+
         // GET: api/Customer
         [HttpGet("GetAll")]
-        public IActionResult GetAllCustomer()
+        public async Task<IActionResult> GetAllCustomerAsync()
         {
             try
             {
-                return Ok(_customerBL.GetAllCustomer());
+                List<Customer> listofCustomer = new List<Customer>();
+                //TryGetValue (check if the cache still exists and if it does "out listofCustomer" puts that data inside our variable)
+                if (!_memoryCache.TryGetValue("CustomerList", out listofCustomer))
+                {
+                    listofCustomer = await _customerBL.GetAllCustomerAsync();
+                    _memoryCache.Set("CustomerList", listofCustomer, new TimeSpan(0, 0, 30));
+                }
+
+                return Ok(listofCustomer);
             }
             catch (SqlException)
             {
@@ -52,8 +65,8 @@ namespace ShopApi.Controllers
         }
 
         // GET: api/Customer/5
-        [HttpGet("GetCustomerByName/{customerName}")]
-        public IActionResult GetCustomerByName(string customerName)
+        [HttpGet]
+        public IActionResult GetCustomerByName([FromQuery] string customerName)
         {
             try
             {
@@ -82,7 +95,7 @@ namespace ShopApi.Controllers
 
         // PUT: api/Customer/5
         [HttpPut("Update{customerID}")]
-        public IActionResult Put(int id, [FromBody] Customer p_customer)
+        public IActionResult Put(int customerID, [FromBody] Customer p_customer)
         {
             try
             {
@@ -91,6 +104,20 @@ namespace ShopApi.Controllers
             catch (System.Exception ex)
             {
                 return Conflict(ex.Message);
+            }
+        }
+
+        // GET: api/Customer/5
+        [HttpGet("ViewOrderByCustomerID/{customerID}")]
+        public IActionResult GetOrderbyCustomerID(int customerID)
+        {
+            try
+            {
+                return Ok(_customerBL.GetOrderbyCustomerID(customerID));
+            }
+            catch (System.Exception)
+            {
+                return NotFound();
             }
         }
 

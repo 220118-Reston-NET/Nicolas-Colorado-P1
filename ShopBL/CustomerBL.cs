@@ -21,6 +21,7 @@ namespace ShopBL
             return _repo.AddCustomer(p_customer);
         }
 
+
         public Customer UpdateCustomer(Customer p_customer)
         {
             return _repo.UpdateCustomer(p_customer);
@@ -32,7 +33,17 @@ namespace ShopBL
             return _repo.GetOrderbyCustomerID(p_customerID);
         }
 
+
         public List<Customer> GetCustomerbyName(string p_Name)
+        {
+            List<Customer> listCustomer = _repo.GetAllCustomer();
+
+            return listCustomer
+                        .Where(customer => customer.Name.Contains(p_Name))
+                        .ToList();
+        }
+
+        public async Task<List<Customer>> GetCustomernyName(string p_Name)
         {
             List<Customer> listCustomer = _repo.GetAllCustomer();
 
@@ -45,6 +56,12 @@ namespace ShopBL
         public List<Customer> GetAllCustomer()
         {
             return _repo.GetAllCustomer();
+        }
+
+
+        public async Task<List<Customer>> GetAllCustomerAsync()
+        {
+            return await _repo.GetAllCustomerAsync();
         }
 
 

@@ -91,36 +91,6 @@ namespace ShopDL
         }
 
 
-        //  public List<Customer> GetCustomerbyName(string p_Name)
-        //  {
-        //     List<Customer> listofCustomer = new List<Customer>();
-
-        //     string sqlQuery = @"select * from Customer c
-        //                     where c.Name = @Name";
-            
-        //     using (SqlConnection con = new SqlConnection(_connectionStrings))
-        //     {
-        //         con.Open();
-
-        //         SqlCommand command = new SqlCommand(sqlQuery, con);
-        //         command.Parameters.AddWithValue("@Name", p_Name);
-
-        //         SqlDataReader reader = command.ExecuteReader();
-
-        //         while (reader.Read())
-        //         {
-        //             listofCustomer.Add(new Customer()
-        //             {
-        //                 customerID = reader.GetInt32(0),
-        //                 Name = reader.GetString(1),
-        //                 Address = reader.GetString(2),
-        //                 Email = reader.GetString(3),
-        //                 Phone = reader.GetString(4)
-        //             });
-        //         }
-        //     }
-        //     return listofCustomer;
-        //  }
 
 
         public List<Customer> GetAllCustomer()
@@ -155,6 +125,39 @@ namespace ShopDL
         }
 
 
+        public async Task<List<Customer>> GetAllCustomerAsync()
+        {
+            List<Customer> listofCustomer = new List<Customer>();
+
+            string sqlQuery = @"select * from Customer";
+
+            using (SqlConnection con = new SqlConnection(_connectionStrings))
+            {
+                await con.OpenAsync();
+
+                SqlCommand command = new SqlCommand(sqlQuery, con);
+                
+                SqlDataReader reader = await command.ExecuteReaderAsync();
+
+                while (reader.Read())
+                {
+                    listofCustomer.Add(new Customer()
+                    {
+                        //Zero-based column index
+                        customerID = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        Address = reader.GetString(2),
+                        Email = reader.GetString(3),
+                        Phone = reader.GetString(4),
+                        //Orders = GetOrderbyCustomerID(reader.GetInt32(0))
+                    });
+                }
+            }
+            return listofCustomer;
+
+        }
+
+
         public StoreFront AddStoreFront(StoreFront p_store)
         {
             string sqlQuery = @"insert into StoreFront
@@ -165,9 +168,9 @@ namespace ShopDL
                 con.Open();
 
                 SqlCommand command = new SqlCommand(sqlQuery, con);
-                command.Parameters.AddWithValue("@Name", p_customer.Name);
-                command.Parameters.AddWithValue("@Address", p_customer.Address);
-                command.Parameters.AddWithValue("@Phone", p_customer.Phone);
+                command.Parameters.AddWithValue("@Name", p_store.Name);
+                command.Parameters.AddWithValue("@Address", p_store.Address);
+                command.Parameters.AddWithValue("@Phone", p_store.Phone);
 
                 command.ExecuteNonQuery();
             }    
@@ -254,6 +257,37 @@ namespace ShopDL
                 SqlCommand command = new SqlCommand(sqlQuery, con);
                 
                 SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    listofStoreFront.Add(new StoreFront()
+                    {
+                        storeID = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        Address = reader.GetString(2),
+                        Phone = reader.GetString(3),
+                        Product = GetProductbyStoreID(reader.GetInt32(0)),
+                        Orders = GetOrderbyCustomerID(reader.GetInt32(0))
+                    });
+                }
+            }
+            return listofStoreFront;
+        }
+
+
+        public async Task<List<StoreFront>> GetAllStoreFrontAsync()
+        {
+            List<StoreFront> listofStoreFront = new List<StoreFront>();
+
+            string sqlQuery = @"select * from StoreFront";
+
+            using (SqlConnection con = new SqlConnection(_connectionStrings))
+            {
+                await con.OpenAsync();
+
+                SqlCommand command = new SqlCommand(sqlQuery, con);
+                
+                SqlDataReader reader = await command.ExecuteReaderAsync();
 
                 while (reader.Read())
                 {

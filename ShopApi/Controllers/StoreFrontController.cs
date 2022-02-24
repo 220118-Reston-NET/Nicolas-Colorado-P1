@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using ShopBL;
 using ShopModel;
 
@@ -28,19 +29,31 @@ namespace ShopApi.Controllers
     {
         //StoreFront Dependency injection
         private IStoreFrontBL _storeBL;
-        public StoreFrontController(IStoreFrontBL p_storeBL)
+
+        private IMemoryCache _memoryCache;
+
+        public StoreFrontController(IStoreFrontBL p_storeBL, IMemoryCache p_memoryCache)
         {
             _storeBL = p_storeBL;
+            _memoryCache = p_memoryCache;
         }
         //---------------------------------------------------
 
         // GET: api/StoreFront
         [HttpGet("GetAllStoreFront")]
-        public IactionResult GetAllStoreFront()
+        public async Task<IActionResult> GetAllStoreFrontAsync()
         {
             try
             {
-                return Ok(_storeBL.GetAllStoreFront());
+                List<StoreFront> listofStoreFront= new List<StoreFront>();
+                //TryGetValue (check if the cache still exists and if it does "out listofStoreFront" puts that data inside our variable)
+                if (!_memoryCache.TryGetValue("StoreList", out listofStoreFront))
+                {
+                    listofStoreFront = await _storeBL.GetAllStoreFrontAsync();
+                    _memoryCache.Set("storeList", listofStoreFront, new TimeSpan(0, 0, 30));
+                }
+
+                return Ok(listofStoreFront);
             }
             catch (SqlException)
             {
@@ -68,6 +81,62 @@ namespace ShopApi.Controllers
                 return Conflict(ex.Message);
             }
         }
+
+        // // POST: api/StoreFront
+        // [HttpPost("PlaceOrder")]
+        // public IActionResult Post([FromBody] int p_storeID, int p_productID, int p_Quantity)
+        // {
+        //     try
+        //     {
+        //         return Created("Successfully replenished inventory", _storeBL.ReplenishInventory(p_storeID, p_productID, p_Quantity));
+        //     }
+        //     catch (System.Exception ex)
+        //     {
+        //         return NotFound;
+        //     }
+        // }
+
+        // GET: api/Store/5
+        [HttpGet("ViewOrderByStoreID/{storeID}")]
+        public IActionResult GetOrderbyStoreID(int storeID)
+        {
+            try
+            {
+                return Ok(_storeBL.GetOrderbyStoreID(storeID));
+            }
+            catch (System.Exception)
+            {
+                return NotFound();
+            }
+        }
+
+        // GET: api/Store/5
+        [HttpGet("ViewInventory/{storeID}")]
+        public IActionResult GetProductbyStoreID(int storeID)
+        {
+            try
+            {
+                return Ok(_storeBL.GetProductbyStoreID(storeID));
+            }
+            catch (System.Exception)
+            {
+                return NotFound();
+            }
+        }
+
+        // // PUT: api/StoreFront
+        // [HttpPut("ReplenishInventory{storeID}")]
+        // public IActionResult Put([FromBody] int p_storeID, int p_productID, int p_Quantity)
+        // {
+        //     try
+        //     {
+        //         return Created("Successfully replenished inventory", _storeBL.ReplenishInventory(p_storeID, p_productID, p_Quantity));
+        //     }
+        //     catch (System.Exception ex)
+        //     {
+        //         return NotFound;
+        //     }
+        // }
 
         // PUT: api/StoreFront/5
         [HttpPut("{id}")]
