@@ -3,7 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-
 GlobalSection(ProjectConfigurationPlatforms) = postSolution
 {33DF0470-525E-4F1E-9FDC-54F105A94333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 {33DF0470-525E-4F1E-9FDC-54F105A94333}.Debug|Any CPU.Build.0 = Debug|Any CPU
