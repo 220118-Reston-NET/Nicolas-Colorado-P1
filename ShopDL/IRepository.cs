@@ -81,11 +81,9 @@ namespace ShopDL
         /// <summary>
         /// Will allow store inventory to be replenished.
         /// </summary>
-        /// <param name="p_productID"></param>
-        /// <param name="p_Quantity"></param>
-        /// <param name="p_storeID"></param>
-        /// <returns> Product ID and the updated product quantity. </returns>
-        void ReplenishInventory(int p_productID, int p_Quantity, int p_storeID);
+        /// <param name="p_inventory"></param>
+        /// <returns> StoreID, Product ID and the updated product quantity. </returns>
+        Inventory ReplenishInventory(Inventory p_inventory);
 
         /// <summary>
         /// Will allow customers to place orders.
@@ -95,7 +93,7 @@ namespace ShopDL
         /// /// <param name="p_priceTotal"></param>
         /// /// <param name="p_orderedItems"></param>
         /// <returns> Returns an order, total price, and update to the inventory. </returns>
-        void PlaceNewOrder(int p_customerID, int p_storeID, double p_priceTotal, List<LineItem> p_orderedItems);
+        // Orders PlaceNewOrder(Orders p_order);
 
     }
 }

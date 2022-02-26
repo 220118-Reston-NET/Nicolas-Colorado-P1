@@ -61,6 +61,25 @@ namespace ShopTest
             Assert.NotNull(product.Price);
             Assert.Equal(validPrice, product.Price);
         }
+
+        /// <summary>
+        /// Checks the validation for a product's category.
+        /// Below is a unit test
+        /// </summary>
+        [Fact]
+        public void ProductCategoryShouldValidData()
+        {
+            //Arrange
+            Product product = new Product();
+            string validCategory = "Electronics and Musical Instruments";
+
+            //Act
+            product.Category = validCategory;
+
+            //Assert
+            Assert.NotNull(product.Category);
+            Assert.Equal(validCategory, product.Category);
+        }
     }
 }
 

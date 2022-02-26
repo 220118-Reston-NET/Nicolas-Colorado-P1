@@ -46,16 +46,16 @@ namespace ShopBL
         }
 
 
-        public void ReplenishInventory(int p_productID, int p_Quantity, int p_storedID)
+        public Inventory ReplenishInventory(Inventory p_inventory)
         {
-            _repo.ReplenishInventory(p_productID, p_Quantity, p_storedID);
+            return _repo.ReplenishInventory(p_inventory);
         }
 
 
-        public void PlaceNewOrder(int p_customerID, int p_storeID, double p_priceTotal, List<LineItem> p_orderedItems)
-        {
-            _repo.PlaceNewOrder(p_customerID, p_storeID, p_priceTotal, p_orderedItems);
-        }
+        // public Orders PlaceNewOrder(Orders p_order)
+        // {
+        //     return _repo.PlaceNewOrder(p_order);
+        // }
 
     }
 }

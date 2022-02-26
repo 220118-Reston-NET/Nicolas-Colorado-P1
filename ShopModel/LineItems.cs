@@ -21,7 +21,7 @@ namespace ShopModel
 
         public override string ToString()
         {
-            return $"{ProductName}\nQTY: {Quantity}";
+            return $"Product Name: {ProductName}\nQTY: {Quantity}";
         }
     }
 }

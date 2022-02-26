@@ -10,7 +10,7 @@ namespace ShopTest
         /// Below is a unit test
         /// </summary>
         [Fact]
-        public void ProductIDShouldValidData()
+        public void LineItemQTYShouldValidData()
         {
             //Arrange
             LineItem item = new LineItem();

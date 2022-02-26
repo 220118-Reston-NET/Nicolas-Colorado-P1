@@ -45,6 +45,26 @@ namespace ShopTest
         }
 
         /// <summary>
+        /// Checks the validation for a customer's email.
+        /// Below is a unit test
+        /// </summary>
+        [Fact]
+        public void CustomerEmailShouldValidData()
+        {
+            //Arrange
+            Customer cust = new Customer();
+            string validEmail = "knack2@aol.com";
+
+            //Act
+            cust.Email = validEmail;
+
+            //Assert
+            Assert.NotNull(cust.Email);
+            Assert.Equal(validEmail, cust.Email);
+
+        }
+
+        /// <summary>
         /// Checks the validation for a customer's ID.
         /// Below is a unit test
         /// </summary>

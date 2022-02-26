@@ -38,18 +38,35 @@ namespace ShopBL
         {
             List<Customer> listCustomer = _repo.GetAllCustomer();
 
-            return listCustomer
-                        .Where(customer => customer.Name.Contains(p_Name))
-                        .ToList();
+            var searchname = listCustomer.Find(c => c.Name.Contains(p_Name));
+            if (searchname != null)
+            {
+                return listCustomer
+                            .Where(customer => customer.Name.Contains(p_Name))
+                            .ToList();
+            }
+            else 
+            {
+                throw new Exception("This customer name cannot be found.");
+            }
         }
 
-        public async Task<List<Customer>> GetCustomernyName(string p_Name)
+        
+        public List<Customer> GetCustomerbyEmail(string p_Email)
         {
             List<Customer> listCustomer = _repo.GetAllCustomer();
 
-            return listCustomer
-                        .Where(customer => customer.Name.Contains(p_Name))
-                        .ToList();
+            var searchname = listCustomer.Find(c => c.Name.Contains(p_Email));
+            if (searchname != null)
+            {
+                return listCustomer
+                            .Where(customer => customer.Name.Contains(p_Email))
+                            .ToList();
+            }
+            else 
+            {
+                throw new Exception("This customer email cannot be found.");
+            }
         }
 
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Bz1P2gfduWagEiOkcazfjFxTETKLGiTVLF+YmnXTE/9a7n5v+PVeJ145lc8jdbEBQ85hHX4tulAncor2M2Oc9Q==",
+  "dgSpecHash": "mXBXmTW6wYj4SAmbEgLyBCh+VVbgPOV3dPYoqiukuBmCz0LTycrnlp6hHjO6LHM/ocyL1yyUN6coxQrLAn2MLg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nickc\\Documents\\Project0\\ShopTest\\ShopTest.csproj",
+  "projectFilePath": "C:\\Users\\nickc\\Documents\\Project1\\ShopTest\\ShopTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nickc\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\nickc\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",

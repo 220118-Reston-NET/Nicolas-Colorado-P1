@@ -8,6 +8,8 @@ namespace ShopModel
 
         public int storeID { get; set; }
 
+        public DateTime DateofOrder { get; set; }
+
         private List<LineItem> _lineItem;
 
         public List<LineItem> LineItem
@@ -30,11 +32,12 @@ namespace ShopModel
             {
                 new LineItem()
             };
+            TotalPrice = 0.00;
         }
 
         public override string ToString()
         {
-            return $"OrderID: {orderID}\nCustomerID: {customerID}\nStoreID: {storeID}\nTotal Price: {TotalPrice}";
+            return $"OrderID: {orderID}\nCustomerID: {customerID}\nStoreID: {storeID}\nDate of Order: {DateofOrder}\nTotal Price: {TotalPrice}";
         }
     }
 }

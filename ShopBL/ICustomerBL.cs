@@ -48,11 +48,18 @@ namespace ShopBL
         List<Orders> GetOrderbyCustomerID(int p_customerID);
 
         /// <summary>
-        /// Gets back a customer from a customer ID input.
+        /// Gets back a customer from a customer name input.
         /// </summary>
         /// <param name="p_customerID"></param>
         /// <returns> Returns customer that was added. </returns>
         List<Customer> GetCustomerbyName(string p_Name);
+
+        /// <summary>
+        /// Gets back a customer from a customer email input.
+        /// </summary>
+        /// <param name="p_Email"></param>
+        /// <returns> Returns customer that was added. </returns>
+        List<Customer> GetCustomerbyEmail(string p_Email);
 
     }
 }

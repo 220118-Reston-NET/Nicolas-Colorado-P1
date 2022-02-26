@@ -124,19 +124,20 @@ namespace ShopApi.Controllers
             }
         }
 
-        // // PUT: api/StoreFront
-        // [HttpPut("ReplenishInventory{storeID}")]
-        // public IActionResult Put([FromBody] int p_storeID, int p_productID, int p_Quantity)
-        // {
-        //     try
-        //     {
-        //         return Created("Successfully replenished inventory", _storeBL.ReplenishInventory(p_storeID, p_productID, p_Quantity));
-        //     }
-        //     catch (System.Exception ex)
-        //     {
-        //         return NotFound;
-        //     }
-        // }
+        // PUT: api/StoreFront
+        [HttpPut("ReplenishInventory{storeID}")]
+        public IActionResult Put(int p_storeID, [FromBody] Inventory p_inventory)
+        {
+            try
+            {
+                Console.WriteLine("Replenishing inventory...");
+                return Ok(_storeBL.ReplenishInventory(p_inventory));
+            }
+            catch (System.Exception ex)
+            {
+                return Conflict(ex.Message);
+            }
+        }
 
         // PUT: api/StoreFront/5
         [HttpPut("{id}")]

@@ -78,6 +78,20 @@ namespace ShopApi.Controllers
             }
         }
 
+        // GET: api/Customer/5
+        [HttpGet]
+        public IActionResult GetCustomerByEmail([FromQuery] string customerEmail)
+        {
+            try
+            {
+                return Ok(_customerBL.GetCustomerbyEmail(customerEmail));
+            }
+            catch (System.Exception)
+            {
+                return NotFound();
+            }
+        }
+
         // POST: api/Customer
         [HttpPost("AddCustomer")]
         public IActionResult Post([FromBody] Customer p_customer)
