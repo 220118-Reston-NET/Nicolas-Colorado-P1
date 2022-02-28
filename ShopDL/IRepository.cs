@@ -88,12 +88,23 @@ namespace ShopDL
         /// <summary>
         /// Will allow customers to place orders.
         /// </summary>
-        /// <param name="p_customerID"></param>
-        /// <param name="p_storeID"></param>
-        /// /// <param name="p_priceTotal"></param>
-        /// /// <param name="p_orderedItems"></param>
+        /// <param name="p_order"></param>
         /// <returns> Returns an order, total price, and update to the inventory. </returns>
-        // Orders PlaceNewOrder(Orders p_order);
+        Orders PlaceNewOrder(Orders p_order);
+
+        /// <summary>
+        /// Will add line items to the order.
+        /// </summary>
+        /// <param name="p_order"></param>
+        /// <returns> Returns line item objects. </returns>
+        List<LineItem> AddLineItem(Orders p_order);
+
+        /// <summary>
+        /// Will return line items by order ID to be displayed in order history.
+        /// </summary>
+        /// <param name="p_orderID"></param>
+        /// <returns> Returns line items by order ID. </returns>
+        List<LineItem> GetLineItemsbyOrderID(Guid p_orderID);
 
     }
 }

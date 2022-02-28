@@ -28,8 +28,8 @@
                 }
             } 
         }
-        private List<Orders>? _orders;
-        public List<Orders>? Orders
+        private List<Orders> _orders;
+        public List<Orders> Orders
         {
             get { return _orders; }
             set 

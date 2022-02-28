@@ -38,7 +38,7 @@ namespace ShopBL
         {
             List<Customer> listCustomer = _repo.GetAllCustomer();
 
-            var searchname = listCustomer.Find(c => c.Name.Contains(p_Name));
+            var searchname = listCustomer.Find(p => p.Name.Contains(p_Name));
             if (searchname != null)
             {
                 return listCustomer
@@ -56,11 +56,11 @@ namespace ShopBL
         {
             List<Customer> listCustomer = _repo.GetAllCustomer();
 
-            var searchname = listCustomer.Find(c => c.Name.Contains(p_Email));
+            var searchname = listCustomer.Find(p => p.Email.Contains(p_Email));
             if (searchname != null)
             {
                 return listCustomer
-                            .Where(customer => customer.Name.Contains(p_Email))
+                            .Where(customer => customer.Email.Contains(p_Email))
                             .ToList();
             }
             else 
@@ -81,55 +81,6 @@ namespace ShopBL
             return await _repo.GetAllCustomerAsync();
         }
 
-
-        public List<Customer> SearchCustomer(string c_search, string c_name)
-        {
-            List<Customer> listCustomer = _repo.GetAllCustomer();
-
-            switch (c_search)
-            {
-                //Use the LINQ library to validate the SearchCustomer function
-                case "1":
-                    var searchname = listCustomer.Find(c => c.Name.Contains(c_name));
-                    if (searchname != null)
-                    {
-                        return listCustomer
-                                    .Where(customer => customer.Name.Contains(c_name))
-                                    .ToList();
-                    }
-                    else 
-                    {
-                        throw new Exception("This customer name cannot be found.");
-                    }
-                case "2":
-                    var searchemail = listCustomer.Find(c => c.Email == c_name);
-                    if (searchemail != null)
-                    {
-                        return listCustomer
-                                    .Where(customer => customer.Email.Equals(c_name))
-                                    .ToList();
-                    }
-                    else 
-                    {
-                        throw new Exception("This customer email cannot be found.");
-                    }
-                case "3":
-                    var searchphone = listCustomer.Find(c => c.Phone == c_name);
-                    if (searchphone != null)
-                    {
-                        return listCustomer
-                                    .Where(customer => customer.Phone.Equals(c_name))
-                                    .ToList();
-                    }
-                    else 
-                    {
-                        throw new Exception("This customer phone number cannot be found.");
-                    }
-                default:
-                    Console.WriteLine("Customer information could not be found. Press the the Enter key to continue.");
-                    Console.ReadLine();
-                    return listCustomer;
-            }
-        }
+            
     }
 }

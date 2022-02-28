@@ -64,8 +64,8 @@ namespace ShopApi.Controllers
             
         }
 
-        // GET: api/Customer/5
-        [HttpGet]
+        // GET: api/Customer/4
+        [HttpGet("SearchCustomerbyName")]
         public IActionResult GetCustomerByName([FromQuery] string customerName)
         {
             try
@@ -79,7 +79,7 @@ namespace ShopApi.Controllers
         }
 
         // GET: api/Customer/5
-        [HttpGet]
+        [HttpGet("SearchCustomerbyEmail")]
         public IActionResult GetCustomerByEmail([FromQuery] string customerEmail)
         {
             try
@@ -129,9 +129,9 @@ namespace ShopApi.Controllers
             {
                 return Ok(_customerBL.GetOrderbyCustomerID(customerID));
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-                return NotFound();
+                return StatusCode(422, ex.Message);
             }
         }
 

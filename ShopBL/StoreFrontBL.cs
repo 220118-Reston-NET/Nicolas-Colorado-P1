@@ -52,10 +52,9 @@ namespace ShopBL
         }
 
 
-        // public Orders PlaceNewOrder(Orders p_order)
-        // {
-        //     return _repo.PlaceNewOrder(p_order);
-        // }
-
+        public Orders PlaceNewOrder(Orders p_order)
+        {
+            return _repo.PlaceNewOrder(p_order);
+        }
     }
 }

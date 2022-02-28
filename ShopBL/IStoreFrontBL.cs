@@ -50,12 +50,12 @@ namespace ShopBL
         /// <returns> Returns an update to the inventory via product quantity.
         Inventory ReplenishInventory(Inventory p_inventory);
 
-        /// <summary>
-        /// Will allow customers to place orders.
-        /// </summary>
-        /// <param name="p_order"></param>
-        /// <returns> Returns an order, total price, and update to the inventory. </returns>
-        // Orders PlaceNewOrder(Orders p_order);
+        // / <summary>
+        // / Will allow customers to place orders.
+        // / </summary>
+        // / <param name="p_order"></param>
+        // / <returns> Returns an order, total price, and update to the inventory. </returns>
+        Orders PlaceNewOrder(Orders p_order);
 
     }
 }

@@ -61,12 +61,12 @@ namespace ShopApi.Controllers
             }
         }
 
-        // GET: api/StoreFront/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        // // GET: api/StoreFront/5
+        // [HttpGet("{id}", Name = "Get")]
+        // public string Get(int id)
+        // {
+        //     return "value";
+        // }
 
         // POST: api/StoreFront
         [HttpPost("AddStoreFront")]
@@ -82,19 +82,19 @@ namespace ShopApi.Controllers
             }
         }
 
-        // // POST: api/StoreFront
-        // [HttpPost("PlaceOrder")]
-        // public IActionResult Post([FromBody] int p_storeID, int p_productID, int p_Quantity)
-        // {
-        //     try
-        //     {
-        //         return Created("Successfully replenished inventory", _storeBL.ReplenishInventory(p_storeID, p_productID, p_Quantity));
-        //     }
-        //     catch (System.Exception ex)
-        //     {
-        //         return NotFound;
-        //     }
-        // }
+        // POST: api/StoreFront
+        [HttpPost("PlaceOrder")]
+        public IActionResult PlaceNewOrder([FromBody] Orders p_order)
+        {
+            try
+            {
+                return Created("Successfully placed order", _storeBL.PlaceNewOrder(p_order));
+            }
+            catch (System.Exception ex)
+            {
+                return Conflict(ex.Message);
+            }
+        }
 
         // GET: api/Store/5
         [HttpGet("ViewOrderByStoreID/{storeID}")]
@@ -104,9 +104,9 @@ namespace ShopApi.Controllers
             {
                 return Ok(_storeBL.GetOrderbyStoreID(storeID));
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-                return NotFound();
+                return StatusCode(422, ex.Message);
             }
         }
 
@@ -130,7 +130,6 @@ namespace ShopApi.Controllers
         {
             try
             {
-                Console.WriteLine("Replenishing inventory...");
                 return Ok(_storeBL.ReplenishInventory(p_inventory));
             }
             catch (System.Exception ex)
@@ -139,16 +138,16 @@ namespace ShopApi.Controllers
             }
         }
 
-        // PUT: api/StoreFront/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+        // // PUT: api/StoreFront/5
+        // [HttpPut("{id}")]
+        // public void Put(int id, [FromBody] string value)
+        // {
+        // }
 
-        // DELETE: api/StoreFront/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        // // DELETE: api/StoreFront/5
+        // [HttpDelete("{id}")]
+        // public void Delete(int id)
+        // {
+        // }
     }
 }

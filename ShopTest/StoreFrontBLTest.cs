@@ -45,5 +45,6 @@ namespace ShopTest
              Assert.Equal(sfAddress, actualListOfStoreFront[0].Address);
              Assert.Equal(sfPhone, actualListOfStoreFront[0].Phone);
         }
+
     }
 }

@@ -2,7 +2,7 @@ namespace ShopModel
 {
     public class Orders
     {
-        public int orderID { get; set; }
+        public Guid orderID { get; set; }
 
         public int customerID { get; set; }
 
@@ -25,9 +25,10 @@ namespace ShopModel
 
         public Orders()
         {
-            orderID = 0;
+            orderID = Guid.NewGuid();
             customerID = 0;
             storeID = 0;
+            DateofOrder = DateTime.UtcNow;
             _lineItem = new List<LineItem>()
             {
                 new LineItem()
