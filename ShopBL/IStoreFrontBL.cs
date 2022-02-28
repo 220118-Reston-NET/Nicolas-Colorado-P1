@@ -37,11 +37,6 @@ namespace ShopBL
         /// <returns> Returns a list collection of order objects. </returns>
         List<Product> GetProductbyStoreID(int p_storeID);
 
-        // /// <summary>   
-        // /// Will give back a list of all products.
-        // /// </summary>
-        // /// <returns> Returns a list collection of products. </returns>
-        // List<Product> GetAllProducts();
 
         /// <summary>
         /// Will allow store inventory to be replenished.

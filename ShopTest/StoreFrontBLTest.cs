@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Moq;
 using ShopBL;
 using ShopDL;
@@ -10,7 +11,7 @@ namespace ShopTest
     public class StoreFrontBLTest
     {
         [Fact]
-        public void ShouldGetAllStore()
+        public async Task ShouldGetAllStoreAsync()
         {
             // Arrange
             int ID = 1;
@@ -31,12 +32,12 @@ namespace ShopTest
 
             Mock<IRepository> mockRepo = new Mock<IRepository>();
 
-            mockRepo.Setup(repo => repo.GetAllStoreFront()).Returns(expectedListOfStoreFront);
+            mockRepo.Setup(repo => repo.GetAllStoreFrontAsync()).ReturnsAsync(expectedListOfStoreFront);
 
             IStoreFrontBL storeBL = new StoreFrontBL(mockRepo.Object);
 
             //Act
-            List<StoreFront> actualListOfStoreFront = storeBL.GetAllStoreFront();
+            List<StoreFront> actualListOfStoreFront = await storeBL.GetAllStoreFrontAsync();
 
             // Assert
              Assert.Same(expectedListOfStoreFront, actualListOfStoreFront);
@@ -45,6 +46,5 @@ namespace ShopTest
              Assert.Equal(sfAddress, actualListOfStoreFront[0].Address);
              Assert.Equal(sfPhone, actualListOfStoreFront[0].Phone);
         }
-
     }
 }
