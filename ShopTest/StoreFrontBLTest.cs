@@ -46,5 +46,33 @@ namespace ShopTest
              Assert.Equal(sfAddress, actualListOfStoreFront[0].Address);
              Assert.Equal(sfPhone, actualListOfStoreFront[0].Phone);
         }
+
+        [Fact]
+        public void ShouldGetOrderbyStoreID()
+        {
+            //Arrange
+            int p_storeID = 4;
+            Orders order = new Orders()
+            {
+              storeID = p_storeID
+            };
+
+            List<Orders> expectedListOfOrders = new List<Orders>();
+            expectedListOfOrders.Add(order);
+
+            
+            Mock<IRepository> mockRepo = new Mock<IRepository>();
+
+            mockRepo.Setup(repo => repo.GetOrderbyStoreID(p_storeID)).Returns(expectedListOfOrders);
+        
+            IStoreFrontBL _storeBL = new StoreFrontBL(mockRepo.Object); 
+            
+            //Act
+            List<Orders> actualListOfOrders = _storeBL.GetOrderbyStoreID(p_storeID);
+            
+            //Assert
+            Assert.Same(expectedListOfOrders, actualListOfOrders); 
+            Assert.Equal(p_storeID, actualListOfOrders[0].storeID);
+        }
     }
 }

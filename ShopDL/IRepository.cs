@@ -39,13 +39,6 @@ namespace ShopDL
         /// <returns> Returns a list collection of order objects. </returns>
         List<Orders> GetOrderbyCustomerID(int p_customerID);
 
-        /// <summary>
-        /// Will add store info to the database.
-        /// </summary>
-        /// <param name="p_store"></param>
-        /// <returns>Returns a store's information. </returns>
-        StoreFront AddStoreFront(StoreFront p_store);
-
         // <summary>
         /// Will give back all the store fronts in the database (There's only one currently).
         /// </summary>
@@ -71,6 +64,14 @@ namespace ShopDL
         /// <param name="p_storeID"></param>
         /// <returns> Returns a list collection of order objects. </returns>
         List<Product> GetProductbyStoreID(int p_storeID);
+
+        /// <summary>
+        /// Will search for a specific manager.
+        /// </summary>
+        /// <param name="p_managerID"></param>
+        /// <param name="p_password"></param>
+        /// <returns> Returns a searched manager.
+        List<Manager> GetManager(int p_managerID, string p_password);
 
 
         /// <summary>

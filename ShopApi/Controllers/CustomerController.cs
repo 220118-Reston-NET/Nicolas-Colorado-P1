@@ -40,7 +40,7 @@ namespace ShopApi.Controllers
         //------------------------------------------------------
 
         // GET: api/Customer
-        [HttpGet("GetAll")]
+        [HttpGet("GetAllCustomer")]
         public async Task<IActionResult> GetAllCustomerAsync()
         {
             try
@@ -94,7 +94,7 @@ namespace ShopApi.Controllers
 
         // POST: api/Customer
         [HttpPost("AddCustomer")]
-        public IActionResult Post([FromBody] Customer p_customer)
+        public IActionResult AddCustomer([FromBody] Customer p_customer)
         {
             try
             {
@@ -108,8 +108,8 @@ namespace ShopApi.Controllers
         }
 
         // PUT: api/Customer/5
-        [HttpPut("Update{customerID}")]
-        public IActionResult Put(int customerID, [FromBody] Customer p_customer)
+        [HttpPut("UpdateCustomer{customerID}")]
+        public IActionResult UpdateCustomer(int customerID, [FromBody] Customer p_customer)
         {
             try
             {
@@ -133,12 +133,6 @@ namespace ShopApi.Controllers
             {
                 return StatusCode(422, ex.Message);
             }
-        }
-
-        // DELETE: api/Customer/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

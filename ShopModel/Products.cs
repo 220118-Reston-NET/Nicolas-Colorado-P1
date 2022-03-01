@@ -13,14 +13,14 @@ namespace ShopModel
         public int Quantity { get; set; }
 
 
-        // public Product()
-        // {
-        //     productID = 0;
-        //     Name = "";
-        //     Price = 0;
-        //     Category = "";
-        //     Quantity = 0;
-        // }
+        public Product()
+        {
+            productID = 0;
+            Name = "";
+            Price = 0;
+            Category = "";
+            Quantity = 0;
+        }
 
         public override string ToString()
         {

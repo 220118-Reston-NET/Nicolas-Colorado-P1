@@ -93,8 +93,6 @@ namespace ShopDL
         }
 
 
-
-
         public List<Customer> GetAllCustomer()
         {
             List<Customer> listofCustomer = new List<Customer>();
@@ -156,27 +154,35 @@ namespace ShopDL
                 }
             }
             return listofCustomer;
-
         }
 
 
-        public StoreFront AddStoreFront(StoreFront p_store)
+        public List<Manager> GetManager(int p_managerID, string p_password)
         {
-            string sqlQuery = @"insert into StoreFront
-                            values(@Name, @Address, @Phone)";
+            List<Manager> listOfManager = new List<Manager>();
+            
+            string sqlQuery = @"select * from Manager";
 
             using (SqlConnection con = new SqlConnection(_connectionStrings))
             {
                 con.Open();
-
+                
                 SqlCommand command = new SqlCommand(sqlQuery, con);
-                command.Parameters.AddWithValue("@Name", p_store.Name);
-                command.Parameters.AddWithValue("@Address", p_store.Address);
-                command.Parameters.AddWithValue("@Phone", p_store.Phone);
+                
+                SqlDataReader reader = command.ExecuteReader();
 
-                command.ExecuteNonQuery();
-            }    
-            return p_store;          
+                while (reader.Read())
+                {
+                    listOfManager.Add(new Manager()
+                    { 
+                        managerID = reader.GetInt32(0),
+                        username = reader.GetString(1),
+                        password = reader.GetString(2),
+                        isAdmin = reader.GetBoolean(3)
+                    });
+                }
+            }
+            return listOfManager;
         }
 
 
@@ -312,10 +318,8 @@ namespace ShopDL
 
         public Inventory ReplenishInventory(Inventory p_inventory)
         {
-            Console.WriteLine("Replenishing inventory...");
-            
             string sqlQuery = @"update Inventory
-                            set Quantity = @Quantity
+                            set Quantity = Quantity + @Quantity
                             where productID = @productID
                             and storeID = @storeID";
 

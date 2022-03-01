@@ -16,12 +16,6 @@ namespace ShopBL
 
 
 
-        public StoreFront AddStoreFront(StoreFront p_store)
-        {
-            return _repo.AddStoreFront(p_store);
-        }
-
-
         public List<Orders> GetOrderbyStoreID(int p_storeID)
         {
             return _repo.GetOrderbyStoreID(p_storeID);
@@ -45,6 +39,25 @@ namespace ShopBL
             return await _repo.GetAllStoreFrontAsync();
         }
 
+        public List<Manager> GetManager(int p_managerID, string p_password)
+        {
+            return _repo.GetManager(p_managerID, p_password);
+        }
+
+        public bool isAdmin(int p_managerID, string p_password)
+        {
+            try
+            {
+                Manager manager = new Manager();
+                manager = GetManager(p_managerID, p_password).Where(manager => manager.managerID.Equals(p_managerID)
+                                                                               & manager.password.Equals(p_password)).First();
+                return manager.isAdmin;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception (ex.Message);
+            }
+        }
 
         public Inventory ReplenishInventory(Inventory p_inventory)
         {

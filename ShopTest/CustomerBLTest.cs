@@ -107,5 +107,33 @@ namespace ShopTest
             Assert.Same(_customer, actualCustomer);
             Assert.NotNull(actualCustomer);
         }
+
+        [Fact]
+        public void ShouldGetOrderbyCustomerID()
+        {
+            //Arrange
+            int p_customerID = 3;
+            Orders order = new Orders()
+            {
+              customerID = p_customerID
+            };
+
+            List<Orders> expectedListOfOrders = new List<Orders>();
+            expectedListOfOrders.Add(order);
+
+            
+            Mock<IRepository> mockRepo = new Mock<IRepository>();
+
+            mockRepo.Setup(repo => repo.GetOrderbyCustomerID(p_customerID)).Returns(expectedListOfOrders);
+        
+            ICustomerBL _customerBL = new CustomerBL(mockRepo.Object); 
+            
+            //Act
+            List<Orders> actualListOfOrders = _customerBL.GetOrderbyCustomerID(p_customerID);
+            
+            //Assert
+            Assert.Same(expectedListOfOrders, actualListOfOrders); 
+            Assert.Equal(p_customerID, actualListOfOrders[0].customerID);
+        }
     }
 }

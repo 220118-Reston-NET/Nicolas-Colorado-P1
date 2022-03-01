@@ -61,26 +61,6 @@ namespace ShopApi.Controllers
             }
         }
 
-        // // GET: api/StoreFront/5
-        // [HttpGet("{id}", Name = "Get")]
-        // public string Get(int id)
-        // {
-        //     return "value";
-        // }
-
-        // POST: api/StoreFront
-        [HttpPost("AddStoreFront")]
-        public IActionResult Post([FromBody] StoreFront p_store)
-        {
-            try
-            {
-                return Created("Successfully added", _storeBL.AddStoreFront(p_store));
-            }
-            catch (System.Exception ex)
-            {
-                return Conflict(ex.Message);
-            }
-        }
 
         // POST: api/StoreFront
         [HttpPost("PlaceOrder")]
@@ -96,7 +76,7 @@ namespace ShopApi.Controllers
             }
         }
 
-        // GET: api/Store/5
+        // GET: api/Store/
         [HttpGet("ViewOrderByStoreID/{storeID}")]
         public IActionResult GetOrderbyStoreID(int storeID)
         {
@@ -110,7 +90,7 @@ namespace ShopApi.Controllers
             }
         }
 
-        // GET: api/Store/5
+        // GET: api/Store/
         [HttpGet("ViewInventory/{storeID}")]
         public IActionResult GetProductbyStoreID(int storeID)
         {
@@ -124,30 +104,27 @@ namespace ShopApi.Controllers
             }
         }
 
-        // PUT: api/StoreFront
-        [HttpPut("ReplenishInventory{storeID}")]
-        public IActionResult Put(int p_storeID, [FromBody] Inventory p_inventory)
+        // PUT: api/StoreFront/
+        [HttpPut("ReplenishInventory")]
+        public IActionResult ReplenishInventory([FromQuery] Inventory p_inventory, int p_managerID, string p_password)
         {
-            try
+            if(_storeBL.isAdmin(p_managerID, p_password))
             {
-                return Ok(_storeBL.ReplenishInventory(p_inventory));
+                try
+                {
+                    Log.Information("Successfully Updated Inventory");
+                    return Ok(_storeBL.ReplenishInventory(p_inventory));
+                }
+                catch (System.Exception ex)
+                {
+                    Log.Warning("Issue updating inventory");
+                    return Conflict(ex.Message);
+                }
             }
-            catch (System.Exception ex)
+            else
             {
-                return Conflict(ex.Message);
+                return StatusCode(401, "Access denied for user");
             }
         }
-
-        // // PUT: api/StoreFront/5
-        // [HttpPut("{id}")]
-        // public void Put(int id, [FromBody] string value)
-        // {
-        // }
-
-        // // DELETE: api/StoreFront/5
-        // [HttpDelete("{id}")]
-        // public void Delete(int id)
-        // {
-        // }
     }
 }
