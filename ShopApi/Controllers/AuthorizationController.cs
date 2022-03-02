@@ -28,7 +28,7 @@ namespace ShopApi.Controllers
             //}
             //catch (SqlException ex)
            // {
-                Log.Warning("Could not find managers.");
+                //Log.Warning("Could not find managers.");
                 
             //}
         }
