@@ -260,3 +260,4 @@ C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\publish\ShopApi.dll.c
 C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\ShopApi.dll.config
 C:\Users\nickc\Documents\Project1\ShopApi\obj\Debug\net6.0\ShopApi.csproj.SuggestedBindingRedirects.cache
 C:\Users\nickc\Documents\Project1\ShopApi\obj\Debug\net6.0\ShopApi.dll.config
+C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
