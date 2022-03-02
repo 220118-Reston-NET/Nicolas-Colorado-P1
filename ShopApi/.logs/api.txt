@@ -1,0 +1,4 @@
+2022-03-01 21:32:35.391 -05:00 [INF] Successfully returned a list of all customers.
+2022-03-01 21:44:00.377 -05:00 [INF] Successfully returned all current manager.
+2022-03-01 21:54:35.087 -05:00 [INF] Successfully returned all current manager.
+2022-03-01 21:59:37.279 -05:00 [INF] Successfully returned a list of all customers.
