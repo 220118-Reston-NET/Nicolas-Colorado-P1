@@ -49,8 +49,7 @@ namespace ShopBL
             try
             {
                 Manager manager = new Manager();
-                manager = GetManager(p_managerID, p_password).Where(manager => manager.managerID.Equals(p_managerID)
-                                                                               & manager.password.Equals(p_password)).First();
+                manager = GetManager(p_managerID, p_password).Where(manager => manager.managerID.Equals(p_managerID) && manager.password.Equals(p_password)).First();
                 return manager.isAdmin;
             }
             catch(Exception ex)

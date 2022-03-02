@@ -52,11 +52,12 @@ namespace ShopApi.Controllers
                     listofStoreFront = await _storeBL.GetAllStoreFrontAsync();
                     _memoryCache.Set("storeList", listofStoreFront, new TimeSpan(0, 0, 30));
                 }
-
+                Log.Information("Successfully returned a list of all stores.");
                 return Ok(listofStoreFront);
             }
             catch (SqlException)
             {
+                Log.Warning("Could not return a list of stores.");
                 return NotFound();
             }
         }
@@ -68,10 +69,12 @@ namespace ShopApi.Controllers
         {
             try
             {
+                Log.Information("Successfully placed an order.");
                 return Created("Successfully placed order", _storeBL.PlaceNewOrder(p_order));
             }
             catch (System.Exception ex)
             {
+                Log.Warning("Could not place order.");
                 return Conflict(ex.Message);
             }
         }
@@ -82,10 +85,12 @@ namespace ShopApi.Controllers
         {
             try
             {
+                Log.Information("Successfully returned list of orders from store.");
                 return Ok(_storeBL.GetOrderbyStoreID(storeID));
             }
             catch (System.Exception ex)
             {
+                Log.Warning("Could not find order history from a store ID.");
                 return StatusCode(422, ex.Message);
             }
         }
@@ -96,10 +101,12 @@ namespace ShopApi.Controllers
         {
             try
             {
+                Log.Information("Successfully returned store inventory.");
                 return Ok(_storeBL.GetProductbyStoreID(storeID));
             }
             catch (System.Exception)
             {
+                Log.Warning("No inventory was found.");
                 return NotFound();
             }
         }

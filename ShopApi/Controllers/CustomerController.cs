@@ -52,13 +52,14 @@ namespace ShopApi.Controllers
                     listofCustomer = await _customerBL.GetAllCustomerAsync();
                     _memoryCache.Set("CustomerList", listofCustomer, new TimeSpan(0, 0, 30));
                 }
-
+                Log.Information("Successfully returned a list of all customers.");
                 return Ok(listofCustomer);
             }
             catch (SqlException)
             {
                 //The Api iss responsible for sending the right resource and right status code
                 //In this case, if it was unable to connect to the database, it'll give a 404 status code
+                Log.Warning("Could not find a list of customers.");
                 return NotFound();
             }
             
@@ -70,6 +71,7 @@ namespace ShopApi.Controllers
         {
             try
             {
+                Log.Information("Successfully returned a customer by name.");
                 return Ok(_customerBL.GetCustomerbyName(customerName));
             }
             catch (System.Exception)
@@ -84,10 +86,12 @@ namespace ShopApi.Controllers
         {
             try
             {
+                Log.Information("Successfully returned a customer by email.");
                 return Ok(_customerBL.GetCustomerbyEmail(customerEmail));
             }
             catch (System.Exception)
             {
+                Log.Warning("Issue updating inventory");
                 return NotFound();
             }
         }
@@ -98,11 +102,12 @@ namespace ShopApi.Controllers
         {
             try
             {
+                Log.Information("Successfully added a new customer.");
                 return Created("Successfully added", _customerBL.AddCustomer(p_customer));
             }
             catch (System.Exception ex)
             {
-                
+                Log.Warning("Could not add a customer.");
                 return Conflict(ex.Message);
             }
         }
@@ -113,10 +118,12 @@ namespace ShopApi.Controllers
         {
             try
             {
+                Log.Information("Successfully updated customer information.");
                 return Ok(_customerBL.UpdateCustomer(p_customer));
             }
             catch (System.Exception ex)
             {
+                Log.Warning("Could not update customer information.");
                 return Conflict(ex.Message);
             }
         }
@@ -127,10 +134,12 @@ namespace ShopApi.Controllers
         {
             try
             {
+                Log.Information("Successfully returned a list or orders from a customer.");
                 return Ok(_customerBL.GetOrderbyCustomerID(customerID));
             }
             catch (System.Exception ex)
             {
+                Log.Warning("Could not view order history by customer ID.");
                 return StatusCode(422, ex.Message);
             }
         }
