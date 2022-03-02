@@ -2,3 +2,8 @@
 2022-03-01 21:44:00.377 -05:00 [INF] Successfully returned all current manager.
 2022-03-01 21:54:35.087 -05:00 [INF] Successfully returned all current manager.
 2022-03-01 21:59:37.279 -05:00 [INF] Successfully returned a list of all customers.
+2022-03-01 22:10:24.239 -05:00 [INF] Successfully returned all current manager.
+2022-03-01 22:10:46.946 -05:00 [INF] Successfully returned a list of all customers.
+2022-03-01 22:11:00.977 -05:00 [INF] Successfully returned a customer by name.
+2022-03-01 22:11:10.065 -05:00 [INF] Successfully returned a customer by name.
+2022-03-01 22:11:28.864 -05:00 [INF] Successfully returned a customer by email.

@@ -21,16 +21,16 @@ namespace ShopApi.Controllers
         [HttpGet("GetAllManager")]
         public IActionResult GetManager(int p_managerID, string p_password)
         {
-            try
-            {
+            //try
+            //{
                 Log.Information("Successfully returned all current manager.");
                 return Ok(_storeBL.GetManager(p_managerID, p_password));
-            }
-            catch (SqlException ex)
-            {
+            //}
+            //catch (SqlException ex)
+           // {
                 Log.Warning("Could not find managers.");
-                return NotFound(ex.Message);
-            }
+                
+            //}
         }
     }
 }
