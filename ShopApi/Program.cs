@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 Log.Logger = new LoggerConfiguration()
-            .WriteTo.File("./logs/api.txt")
+            .WriteTo.File("./.logs/api.txt")
             .CreateLogger();
 
 
@@ -22,7 +22,6 @@ builder.Services.AddScoped<IRepository>(repo => new SQLRepository(builder.Config
 builder.Services.AddScoped<ICustomerBL, CustomerBL>();
 builder.Services.AddScoped<IStoreFrontBL, StoreFrontBL>();
 
-builder.Services.AddAuthorization();
 
 var app = builder.Build();
 

@@ -6,7 +6,23 @@ namespace ShopModel
 
         public int productID { get; set; }
 
-        public int Quantity { get; set; }
+        private int _quantity; 
+        public int Quantity
+        {
+            get { return _quantity; }
+            set
+            {
+                //Cannot have quantity of products in inventory drop below zero (0).
+                if (value >= 0)
+                {
+                    _quantity = value;
+                }
+                else
+                {
+                    throw new Exception("Your item quantity cannot be less than zero! Please purchase less of the product.");
+                }
+            }
+        }
 
         public Inventory()
         {
