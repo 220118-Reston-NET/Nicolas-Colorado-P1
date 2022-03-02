@@ -12,3 +12,19 @@
 2022-03-01 23:12:32.567 -05:00 [INF] Successfully returned all current manager.
 2022-03-01 23:16:56.481 -05:00 [INF] Successfully returned all current manager.
 2022-03-02 00:12:19.315 -05:00 [INF] Successfully returned a list of all customers.
+2022-03-02 00:58:10.389 -05:00 [INF] Successfully returned all current manager.
+2022-03-02 01:14:09.908 -05:00 [INF] Successfully returned a customer by name.
+2022-03-02 01:15:14.513 -05:00 [INF] Successfully returned a customer by email.
+2022-03-02 01:19:00.771 -05:00 [INF] Successfully added a new customer.
+2022-03-02 01:27:24.736 -05:00 [INF] Successfully updated customer information.
+2022-03-02 01:34:05.735 -05:00 [INF] Successfully updated customer information.
+2022-03-02 01:38:41.898 -05:00 [INF] Successfully returned a list or orders from a customer.
+2022-03-02 01:44:16.690 -05:00 [INF] Successfully returned a customer by name.
+2022-03-02 01:44:33.139 -05:00 [INF] Successfully returned a customer by email.
+2022-03-02 01:46:58.635 -05:00 [INF] Successfully added a new customer.
+2022-03-02 01:47:54.814 -05:00 [INF] Successfully updated customer information.
+2022-03-02 01:49:03.240 -05:00 [INF] Successfully returned a list or orders from a customer.
+2022-03-02 01:50:10.289 -05:00 [INF] Successfully returned a list of all stores.
+2022-03-02 01:51:43.462 -05:00 [INF] Successfully returned list of orders from store.
+2022-03-02 01:53:56.706 -05:00 [INF] Successfully returned store inventory.
+2022-03-02 01:58:10.595 -05:00 [INF] Successfully Updated Inventory

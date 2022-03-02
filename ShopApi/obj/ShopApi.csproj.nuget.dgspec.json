@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[7.0.0-preview.1.22076.8, )"
             },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0-preview.1.22076.8, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.2, )"

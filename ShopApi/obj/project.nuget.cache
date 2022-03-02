@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UMaDE75bhpZwb7SSMxzoj7SVwH/qDXIEuNyhFefFKG2WgiETcInKIEz5EBGRp6OtzIFsQPTk0jLyJ+o18fpetQ==",
+  "dgSpecHash": "IW5AR1Dq3EAw1GNqI3Q5HyAEsfurqBtZ1hzGfBSv5r4UjrwyK/sZYaIJk3tJXWyVRSsRyz5BRlMgOEoT9hh1NQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\nickc\\Documents\\Project1\\ShopApi\\ShopApi.csproj",
   "expectedPackageFiles": [
@@ -34,6 +34,7 @@
     "C:\\Users\\nickc\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\nickc\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0-preview.1.22076.8\\microsoft.extensions.caching.abstractions.7.0.0-preview.1.22076.8.nupkg.sha512",
     "C:\\Users\\nickc\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0-preview.1.22076.8\\microsoft.extensions.caching.memory.7.0.0-preview.1.22076.8.nupkg.sha512",
+    "C:\\Users\\nickc\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0-preview.1.22076.8\\microsoft.extensions.configuration.abstractions.7.0.0-preview.1.22076.8.nupkg.sha512",
     "C:\\Users\\nickc\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
     "C:\\Users\\nickc\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0-preview.1.22076.8\\microsoft.extensions.dependencyinjection.abstractions.7.0.0-preview.1.22076.8.nupkg.sha512",
     "C:\\Users\\nickc\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0-preview.1.22076.8\\microsoft.extensions.logging.abstractions.7.0.0-preview.1.22076.8.nupkg.sha512",
