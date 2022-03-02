@@ -28,3 +28,28 @@
 2022-03-02 01:51:43.462 -05:00 [INF] Successfully returned list of orders from store.
 2022-03-02 01:53:56.706 -05:00 [INF] Successfully returned store inventory.
 2022-03-02 01:58:10.595 -05:00 [INF] Successfully Updated Inventory
+2022-03-02 09:23:21.711 -05:00 [INF] Successfully returned all current manager.
+2022-03-02 09:24:48.374 -05:00 [INF] Successfully returned a customer by name.
+2022-03-02 09:26:04.556 -05:00 [INF] Successfully returned a customer by email.
+2022-03-02 09:30:17.845 -05:00 [INF] Successfully added a new customer.
+2022-03-02 09:33:50.560 -05:00 [INF] Successfully updated customer information.
+2022-03-02 09:34:48.452 -05:00 [INF] Successfully returned a list or orders from a customer.
+2022-03-02 09:35:50.928 -05:00 [INF] Successfully returned a list of all stores.
+2022-03-02 09:36:38.644 -05:00 [INF] Successfully returned list of orders from store.
+2022-03-02 09:37:30.681 -05:00 [INF] Successfully returned store inventory.
+2022-03-02 09:39:16.114 -05:00 [INF] Successfully Updated Inventory
+2022-03-02 11:00:34.075 -05:00 [INF] Successfully returned all current manager.
+2022-03-02 11:00:56.110 -05:00 [INF] Successfully returned all current manager.
+2022-03-02 11:01:14.036 -05:00 [INF] Successfully returned a list of all customers.
+2022-03-02 11:01:48.126 -05:00 [INF] Successfully returned a customer by name.
+2022-03-02 11:02:09.165 -05:00 [INF] Successfully returned a customer by email.
+2022-03-02 11:02:27.268 -05:00 [INF] Successfully added a new customer.
+2022-03-02 11:04:08.566 -05:00 [INF] Successfully updated customer information.
+2022-03-02 11:04:52.018 -05:00 [INF] Successfully returned a list of all stores.
+2022-03-02 11:07:09.675 -05:00 [INF] Successfully placed an order.
+2022-03-02 11:08:41.136 -05:00 [INF] Successfully returned a list or orders from a customer.
+2022-03-02 11:09:25.044 -05:00 [INF] Successfully returned list of orders from store.
+2022-03-02 11:09:49.694 -05:00 [INF] Successfully returned store inventory.
+2022-03-02 11:10:05.999 -05:00 [INF] Successfully returned store inventory.
+2022-03-02 11:11:15.714 -05:00 [INF] Successfully Updated Inventory
+2022-03-02 11:20:49.115 -05:00 [INF] Successfully placed an order.
