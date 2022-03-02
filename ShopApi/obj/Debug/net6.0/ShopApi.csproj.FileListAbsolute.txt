@@ -252,8 +252,6 @@ C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\publish\ShopApi.deps.
 C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\publish\ShopApi.runtimeconfig.json
 C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\Azure.Core.dll
 C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\Azure.Identity.dll
-C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
-C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -276,8 +274,6 @@ C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\Microsoft.IdentityMod
 C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
-C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.Newtonsoft.dll
 C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\System.Collections.Immutable.dll
 C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
 C:\Users\nickc\Documents\Project1\ShopApi\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
