@@ -70,7 +70,7 @@ jobs:
       
     # Doing our unit test first to see if our new project passes all of it before deploying
     - name: Test
-      run: dotnet test --no-build
+      run: dotnet test --no-restore
       
     - name: Build and analyze
       env:
