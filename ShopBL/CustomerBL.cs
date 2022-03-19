@@ -60,7 +60,7 @@ namespace ShopBL
             if (searchname != null)
             {
                 return listCustomer
-                            .Where(customer => customer.Email.Contains(p_Email))
+                            .Where(customer => customer.Email.Equals(p_Email))
                             .ToList();
             }
             else 

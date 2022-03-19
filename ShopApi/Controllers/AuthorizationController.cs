@@ -20,15 +20,24 @@ namespace ShopApi.Controllers
         }
 
         [HttpGet("GetAllManager")]
-        public IActionResult GetManager(int p_managerID, string p_password)
+        public IActionResult GetManager([FromQuery] int p_managerID, string p_password)
         {
             try
             {
+                if (p_password == null)
+                {
+                    Log.Information("User did not input a password for the manager.");
+                    throw new Exception("You did not input the manager's password!");
+                }
+                else if (p_managerID == 0)
+                {
+                    Log.Information("User did not input a manager ID for the manager.");
+                }
                 Log.Information("Successfully returned all current manager.");
                 return Ok(_storeBL.GetManager(p_managerID, p_password));
             }
             catch (SqlException ex)
-           {
+            {
                 Log.Warning("Could not find managers.");
                 return NotFound(ex.Message);
                 

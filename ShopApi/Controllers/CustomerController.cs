@@ -130,7 +130,7 @@ namespace ShopApi.Controllers
 
         // GET: api/Customer/5
         [HttpGet("ViewOrderByCustomerID/{customerID}")]
-        public IActionResult GetOrderbyCustomerID(int customerID)
+        public IActionResult GetOrderbyCustomerID([FromQuery] int customerID)
         {
             try
             {
