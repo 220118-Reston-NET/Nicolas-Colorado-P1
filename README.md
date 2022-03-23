@@ -39,3 +39,19 @@ Features:
 
 Future Development:
 * Add JWT Authentication for manager credentials
+
+## Usage
+
+Clone the repo on VSCode using the repo's URL: 'https://github.com/220118-Reston-NET/Nicolas-Colorado-P1'
+
+Use the 'cd' command to navigate into the projects API folder (ShopAPI) and run the CLI command: 'dotnet run'
+
+Test the project in a local host provided by the terminal: http://localhost:{yourport}/swagger/index.html
+
+To run tests, 'cd' into the project's test folder (ShopTest) and run the CLI command: 'dotnet test'
+
+## Links
+
+This project uses API Base URL: 'https://p1shopapp.azurewebsites.net'
+
+To utilize Swagger for performing and displaying project's functionalities, use proper API endpoints. For example, to use the "get all customers" functionality and display in on a webpage, the complete URL will be: 'https://p1shopapp.azurewebsites.net/api/Customer/GetAllCustomer' 
